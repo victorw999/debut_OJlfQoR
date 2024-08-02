@@ -1,0 +1,70 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "link_list",
+          "settings": {
+            "title": "Quick links",
+            "menu": "footer"
+          }
+        },
+        "footer-1": {
+          "type": "link_list",
+          "settings": {
+            "title": "Quick links",
+            "menu": "footer"
+          }
+        },
+        "footer-2": {
+          "type": "text",
+          "settings": {
+            "title": "Talk about your business",
+            "text": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "footer-2"
+      ],
+      "settings": {
+        "show_payment_icons": false,
+        "color_footer_bg": "#F5F5F5",
+        "color_footer_text": "#3d4246"
+      }
+    },
+    "announcement_bar_w4hDCp": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_rT4KVp": {
+          "type": "announcement",
+          "settings": {
+            "text": "Footer group Welcome you as well",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_rT4KVp"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "announcement_bar_w4hDCp"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "align_logo": "left",
+        "logo_max_width": 100,
+        "main_linklist": "main-menu",
+        "message": false,
+        "home_page_only": true,
+        "message_text": "Announce something here",
+        "message_link": "",
+        "color_bg": "#7796a8",
+        "color_text": "#fff"
+      }
+    },
+    "announcement_bar_tfHMff": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_L4XP9H": {
+          "type": "announcement",
+          "settings": {
+            "text": "announce #2 in header group",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_L4XP9H"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "announcement_bar_tfHMff"
+  ]
+}
