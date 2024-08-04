@@ -39,11 +39,14 @@
 }
 .localization_table {
   background-color: var(--teal-5); margin:0px;
-  td.title{
+  .title{
     font-weight: bold;
     text-align: center;
     background-color: var(--teal-1);
     color: white;
+  }
+  .hidden{
+    display: none;
   }
   td.name {
     font-weight: bold;
