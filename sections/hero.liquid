@@ -856,7 +856,7 @@
       const parser = new DOMParser();
       const doc = await parser.parseFromString(data[sid], 'text/html');
       const new_section = doc.body.firstChild
-      new_section.style.border = '10px solid red'
+      new_section.style.border = '2px solid red'
     
       // replace section ( of course destroy old section's evthandlers as well)
       const target = document.querySelector(`[data-announcement-section-id=${sid}]`)

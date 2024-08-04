@@ -1,0 +1,67 @@
+<script src="{{ 'vic-localization-form.js' | asset_url }}" defer="defer"></script>
+{{ 'vic-localization-form.css' | asset_url | stylesheet_tag }}
+
+<div class="demo-localization">
+  <h4>currencies and languages</h4>
+
+  <table class="localization_table">
+    <tr>
+      <td colspan="2" class="title">localization obj printout</td>
+    </tr>
+    <tr>
+      <td class="name">localization.available_countries:</td>
+      <td class="val">{{ localization.available_countries | join: ', ' }}</td>
+    </tr>
+    <tr>
+      <td class="name">localization.available_languages:</td>
+      {% liquid
+        assign langs = ''
+        for locale in localization.available_languages
+          assign langs = langs | append: locale.name
+          unless forloop.last
+            assign langs = langs | append: ',' | strip | strip_newlines
+          endunless
+        endfor
+      %}
+      <td class="val">{{ langs }}</td>
+    </tr>
+    <tr>
+      <td class="name">localization.country:</td>
+      <td class="val">{{ localization.country }}</td>
+    </tr>
+    <tr>
+      <td class="name">localization.market:</td>
+      <td class="val">
+        <li><span class="prop">handle:</span> {{ localization.market.handle }}</li>
+        <li><span class="prop">id: </span>{{ localization.market.id }}</li>
+        <li><span class="prop">metafield:</span> {{ localization.market.metafield }}</li>
+      </td>
+    </tr>
+    <tr>
+      <td class="name">localization.language:</td>
+      <td class="val">
+        <li><span class="prop">endonym_name:</span>{{ localization.language.endonym_name }}</li>
+        <li><span class="prop">iso_code:</span>{{ localization.language.iso_code }}</li>
+        <li><span class="prop">name:</span>{{ localization.language.name }}</li>
+        <li><span class="prop">primary:</span>{{ localization.language.primary }}</li>
+        <li><span class="prop">root_url:</span>{{ localization.language.root_url }}</li>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="name">dynaimc URL</td>
+      <td class="val">
+        <li>
+          <a class="btn button" href="{{ routes.cart_url }}">{{ 'templates.cart.go_to_cart' | t }}</a>
+        </li>
+        <li><span class="prop">routes.cart_url: </span> {{ routes.cart_url }}</li>
+        <li><span class="prop">"templates.cart.go_to_cart" | t : </span> {{ 'templates.cart.go_to_cart' | t }}</li>
+      </td>
+    </tr>
+  </table>
+
+  <div class="dropdown_container">
+    {% render 'vic-country-selector' %}
+    {% render 'vic-language-selector' %}
+  </div>
+</div>
