@@ -1,0 +1,116 @@
+{{ 'vic-base.css' | asset_url | stylesheet_tag }}
+
+<div class="demo-metaobject">
+  <table class="demo_table">
+    <thead>
+      <th class="title" colspan="2">
+        <a href="https://shopify.dev/docs/api/liquid/objects/metaobject_definition">metafield_definition</a>
+      </th>
+    </thead>
+    <tbody class="">
+      <tr>
+        <td class="name"></td>
+        <td class="val"></td>
+      </tr>
+      <tr>
+        <td class="name">Liquid Codes</td>
+        <td class="val">Outcomes</td>
+      </tr>
+      <tr>
+        <td class="name">
+          <my-liquid-code> shop.metaobjects.<span class="highlight_2">designer</span>.values </my-liquid-code>
+          <pre>
+            &#123;&#37; for designer in shop.metaobjects.designer.values &#37;&#125;                
+              &#123;&#123; designer.name &#125;&#125;             
+              &#123;&#37;- unless forloop.last &#37;&#125;, &#123;&#37; endunless &#37;&#125;           
+            &#123;&#37; endfor &#37;&#125;
+          </pre>
+        </td>
+        <td class="val">
+          meta obj <span class="highlight_1">"designer"</span>'s type: <code>designer</code>
+          <br>
+          {% for designer in shop.metaobjects.designer.values %}
+            {{ designer.name -}}
+            {%- unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <my-liquid-code> shop.metaobjects.designer.values_count </my-liquid-code>
+        </td>
+        <td class="val">
+          {{ shop.metaobjects.designer.values_count }}
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <my-liquid-code> shop.metaobjects.<b>designer.michael</b>.name </my-liquid-code>
+        </td>
+        <td class="val">{{ shop.metaobjects.designer.michael.name }}</td>
+      </tr>
+      <tr>
+        <td class="name">
+          <my-liquid-code> shop.metaobjects.<span class="highlight_2">designer['sun-lee']</span>.name </my-liquid-code>
+        </td>
+        <td class="val">{{ shop.metaobjects.designer['sun-lee'].name }}</td>
+      </tr>
+      <tr>
+        <td class="name">
+          <my-liquid-code> shop.metaobjects.designer.sun-lee.short_description </my-liquid-code>
+        </td>
+        <td class="val one_line_text">
+          {{ shop.metaobjects.designer['sun-lee'].short_description }}
+        </td>
+      </tr>
+
+      <tr>
+        <td class="name">
+          <my-liquid-code>
+            shop.metaobjects.<span class="highlight_2">shopify--color-pattern</span>.values
+          </my-liquid-code>
+        </td>
+        <td class="val">
+          <span class="prop">
+            meta obj <span class="highlight_1">"color"</span>'s type: <code>shopify--color-pattern</code>
+          </span>
+          <br>
+          {% for color in shop.metaobjects['shopify--color-pattern'].values %}
+            {{ color.label -}}
+            {%- unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <td class="name">
+          <my-liquid-code> shop.metaobjects.<b>shopify--color-pattern</b>.values_count </my-liquid-code>
+        </td>
+        <td class="val">
+          {{ shop.metaobjects['shopify--color-pattern'].values_count }}
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <my-liquid-code>
+            shop.metaobjects.designer.sun-lee.image.value <b> | image_url: width: 88 | image_tag: loading: 'lazy'</b>
+          </my-liquid-code>
+        </td>
+      </tr>
+      <tr>
+        <td class="name"></td>
+        <td class="val">
+          {{ shop.metaobjects.designer['sun-lee'].image.value | image_url: width: 88 | image_tag: loading: 'lazy' }}
+        </td>
+      </tr>
+
+      <tr class="gap"></tr>
+     
+    </tbody>
+  </table>
+</div>
+
+<script>
+  console.log('shop.metaobjects.designer.values ', {{shop.metaobjects.designer.values | json }})
+  console.log('shop.metaobjects.designer.values_count ', {{shop.metaobjects.designer.values_count | json }})
+</script>

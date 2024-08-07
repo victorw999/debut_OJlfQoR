@@ -1,0 +1,90 @@
+:root {
+  --teal-1: #1b6780;
+  --teal-2: #2ba2ca;
+  --teal-3: #57badb;
+  --teal-4: #89cfe6;
+  --teal-5: #cdeaf4;
+  --darkblue-1: #0d1213;
+}
+
+.demo_table {
+  font-family: monospace;
+  background-color: var(--teal-5);
+  margin: 0px;
+  .title,
+  a {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--teal-1);
+    color: white;
+  }
+  .hidden {
+    display: none;
+  }
+  .gap {
+    height: 33px;
+    background-color: white;
+  }
+  td.name {
+    font-weight: bold;
+    text-align: right;
+    width: 50%;
+  }
+  td.val {
+    width: 50%;
+    color: black;
+    .prop {
+      color: var(--teal-1);
+      font-weight: bold;
+    }
+  }
+}
+
+.highlight_1,
+b {
+  background: rgb(254, 254, 176);
+  color: rgb(136, 0, 0);
+}
+
+code {
+  background: var(--teal-1);
+  color: white;
+  font-weight: normal;
+  padding: 0px 10px;
+  border-radius: 3px;
+  font-family: "courier new";
+}
+
+my-liquid-code .code_content {
+  background: var(--darkblue-1);
+
+  color: rgb(163, 223, 253);
+  font-weight: 400;
+  padding: 0px 10px;
+  border-radius: 3px;
+  font-family: "JetBrains Mono", Monaco, Consolas, "Lucida Console";
+  display: inline-block;
+
+  .highlight_2,
+  b {
+    color: rgb(0, 244, 185);
+    background-color: transparent;
+  }
+}
+
+pre {
+  text-align: left;
+  background: var(--darkblue-1);
+  color: rgb(163, 223, 253);
+  font-weight: 400;
+  padding: 0px 10px;
+  border-radius: 3px;
+  font-family: "JetBrains Mono", Monaco, Consolas, "Lucida Console";
+}
+
+.one_line_text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
