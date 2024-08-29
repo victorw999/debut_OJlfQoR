@@ -40,7 +40,7 @@ const query = ` {
     }
   }
 }`
-async function productsLoader(Storefront_api) {
+export const productsLoader = async function (Storefront_api) {
 
   const response = await fetch(
     'https://vzine.myshopify.com/api/2024-07/graphql.json',
@@ -62,4 +62,3 @@ async function productsLoader(Storefront_api) {
   return products
 }
 
-export default productsLoader

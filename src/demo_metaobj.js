@@ -1,6 +1,8 @@
-import { productLoader, productLoader2 } from "./productLoader.js"
+import { productsLoader } from "./productsLoader.js"
 
-let SHOPIFY_STOREFRONT_API = '7205448e608af45a59ff19512e93792b'
+const SHOPIFY_STOREFRONT_API = '7205448e608af45a59ff19512e93792b';
 
-console.log('---> ', productLoader('hooahd1231311'))
-console.log('---> ', productLoader2('these are the days of inspiration')) 
+(async function () {
+  let products = await productsLoader(SHOPIFY_STOREFRONT_API);
+  console.log('===> demo_metaobj: products ', products);
+})()

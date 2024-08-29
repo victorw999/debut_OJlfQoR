@@ -16,7 +16,7 @@
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _productLoader_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./productLoader.js */ \"./src/productLoader.js\");\n\r\n\r\nlet SHOPIFY_STOREFRONT_API = '7205448e608af45a59ff19512e93792b'\r\n\r\nconsole.log('---> ', (0,_productLoader_js__WEBPACK_IMPORTED_MODULE_0__.productLoader)('hooahd1231311'))\r\nconsole.log('---> ', (0,_productLoader_js__WEBPACK_IMPORTED_MODULE_0__.productLoader2)('these are the days of inspiration')) \n\n//# sourceURL=webpack://debut_ojlfqor/./src/demo_metaobj.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _productsLoader_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./productsLoader.js */ \"./src/productsLoader.js\");\n\r\n\r\nconst SHOPIFY_STOREFRONT_API = '7205448e608af45a59ff19512e93792b';\r\n\r\n(async function () {\r\n  let products = await (0,_productsLoader_js__WEBPACK_IMPORTED_MODULE_0__.productsLoader)(SHOPIFY_STOREFRONT_API);\r\n  console.log('===> demo_metaobj: products ', products);\r\n})()\r\n\n\n//# sourceURL=webpack://debut_ojlfqor/./src/demo_metaobj.js?");
 
 /***/ }),
 
@@ -26,17 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _demo_metaobj_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./demo_metaobj.js */ \"./src/demo_metaobj.js\");\n\r\n\r\nconsole.log('====> testing 123 index.js')\n\n//# sourceURL=webpack://debut_ojlfqor/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _demo_metaobj_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./demo_metaobj.js */ \"./src/demo_metaobj.js\");\n// all js files will be bundled into assets/webpack_bundle.js \r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://debut_ojlfqor/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/productLoader.js":
-/*!******************************!*\
-  !*** ./src/productLoader.js ***!
-  \******************************/
+/***/ "./src/productsLoader.js":
+/*!*******************************!*\
+  !*** ./src/productsLoader.js ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n// shopify Storefront API\r\n\r\nconst query = ` {\r\n  products(first: 10) {\r\n    edges {\r\n      node {\r\n        id\r\n        title\r\n        handle\r\n        description\r\n        variants(first: 5) {\r\n          edges {\r\n            node {              \r\n              id\r\n              selectedOptions {\r\n                name\r\n                value\r\n              }\r\n              priceV2 {\r\n                amount\r\n                currencyCode\r\n              }\r\n            }\r\n          }\r\n        }\r\n        featuredImage {\r\n          originalSrc           \r\n        }\r\n        media(first: 1) {\r\n          edges {\r\n            node {              \r\n              previewImage {\r\n                transformedSrc(maxHeight: 200, maxWidth: 200)\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}`\r\nasync function productsLoader(Storefront_api) {\r\n\r\n  const response = await fetch(\r\n    'https://vzine.myshopify.com/api/2024-07/graphql.json',\r\n    {\r\n      method: 'POST',\r\n      headers: {\r\n        'Content-Type': 'application/json',\r\n        'X-Shopify-Storefront-Access-Token': Storefront_api\r\n      },\r\n      body: JSON.stringify({ query })\r\n    }\r\n  )\r\n\r\n  const data = await response.json()\r\n  // console.log('===> productLoader()', data.data.products.edges) // Access product data\r\n\r\n  // massage \"products\" data for easy usage\r\n  const products = data.data.products.edges.map(i => i.node)\r\n  return products\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (productsLoader);\r\n\n\n//# sourceURL=webpack://debut_ojlfqor/./src/productLoader.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   productsLoader: () => (/* binding */ productsLoader)\n/* harmony export */ });\n\r\n// shopify Storefront API\r\n\r\nconst query = ` {\r\n  products(first: 10) {\r\n    edges {\r\n      node {\r\n        id\r\n        title\r\n        handle\r\n        description\r\n        variants(first: 5) {\r\n          edges {\r\n            node {              \r\n              id\r\n              selectedOptions {\r\n                name\r\n                value\r\n              }\r\n              priceV2 {\r\n                amount\r\n                currencyCode\r\n              }\r\n            }\r\n          }\r\n        }\r\n        featuredImage {\r\n          originalSrc           \r\n        }\r\n        media(first: 1) {\r\n          edges {\r\n            node {              \r\n              previewImage {\r\n                transformedSrc(maxHeight: 200, maxWidth: 200)\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}`\r\nconst productsLoader = async function (Storefront_api) {\r\n\r\n  const response = await fetch(\r\n    'https://vzine.myshopify.com/api/2024-07/graphql.json',\r\n    {\r\n      method: 'POST',\r\n      headers: {\r\n        'Content-Type': 'application/json',\r\n        'X-Shopify-Storefront-Access-Token': Storefront_api\r\n      },\r\n      body: JSON.stringify({ query })\r\n    }\r\n  )\r\n\r\n  const data = await response.json()\r\n  // console.log('===> productLoader()', data.data.products.edges) // Access product data\r\n\r\n  // massage \"products\" data for easy usage\r\n  const products = data.data.products.edges.map(i => i.node)\r\n  return products\r\n}\r\n\r\n\n\n//# sourceURL=webpack://debut_ojlfqor/./src/productsLoader.js?");
 
 /***/ })
 
